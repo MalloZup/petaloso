@@ -9,6 +9,10 @@ https://github.com/moio/sumaform/#installation
 
 # HOWTO:
 
+## Create controller with terraform
+
+The controller has all the pkg and will run the driver for webbrowser.
+
 ```console
 git clone https://github.com/MalloZup/petaloso.git
 cd terraform
@@ -21,7 +25,8 @@ terraform get
 terraform apply
 ```
 
-RUN the test
+
+## RUN the test
 
 **mallZUP** is only a unique prefix here, you should put something else, your prefix with terraform.
 ```console
