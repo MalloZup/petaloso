@@ -17,4 +17,4 @@ Feature: Do some small tests
     Then I should see a "Products & Solutions" text
     When I click "contact"
     Then I should not see a "Products & Solutions" text
-    And I take screenshot
+    And I take a screenshot

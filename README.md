@@ -1,6 +1,12 @@
 # petaloso
 cucumber web-testing tutorial
 
+# Prequisites:
+
+## INSTALL terraform
+https://github.com/moio/sumaform/#installation
+
+
 # HOWTO:
 
 ```console
@@ -17,9 +23,17 @@ terraform apply
 
 RUN the test
 ```console
-scp cucumber-tests root@yourprefixcontroller.tf.local:/root
-ssh root@yourprefixcontroller.tf.local "cd /root/cucumber-tests/ ; rake"
+scp -r cucumber-tests root@malloZUPcontroller.tf.local:/root
+ssh -t root@malloZUPcontroller.tf.local "cd /root/cucumber-tests/ ; rake"
 ```
+
+### See the results
+```console
+scp root@malloZUPcontroller.tf.local:/root/cucumber-tests/output.html .
+firefox output.html
+```
+
+
 
 #### Troubleshooting
 https://github.com/moio/sumaform/blob/master/TROUBLESHOOTING.md

@@ -12,7 +12,6 @@ require 'tmpdir'
 require 'base64'
 require 'capybara'
 require 'capybara/cucumber'
-require File.join(File.dirname(__FILE__), 'cobbler_test')
 require 'simplecov'
 require 'capybara/poltergeist'
 SimpleCov.start

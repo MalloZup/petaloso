@@ -3,7 +3,7 @@
 # Some essential steps
 # when you test a webpage and server
 
-And(/^I navigate to "([^"]*)" page$/) do |page|
+And(/^I navigate to "([^"]*)"$/) do |page|
     # Capaybara for navigate in webpages, look at:
     # https://gist.github.com/zhengjia/428105
      visit("https://#{page}")
