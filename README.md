@@ -22,6 +22,8 @@ terraform apply
 ```
 
 RUN the test
+
+**mallZUP** is only a unique prefix here, you should put something else, your prefix with terraform.
 ```console
 scp -r cucumber-tests root@malloZUPcontroller.tf.local:/root
 ssh -t root@malloZUPcontroller.tf.local "cd /root/cucumber-tests/ ; rake"
@@ -33,6 +35,29 @@ scp root@malloZUPcontroller.tf.local:/root/cucumber-tests/output.html .
 firefox output.html
 ```
 
+## How to expand this template
+
+Add your feature to hello.yml, the feature will be executed sequentially
+```console
+echo "- features/lasagne.feature" >> cucumber-tests/run_sets/hello.yml
+touch cucumber-tests/features/lasagne.feature
+echo "SOMENEW_TEST" > cucumber-tests/features/lasagne.feature
+```
+
+## If you want to change the set of feature.
+
+```console
+vi cucumber-tests/run_sets/production.yml
+```
+Put your features
+
+And..
+Modify the Rakefile,
+
+```console
+task :cucumber do |t|
+  Rake::Task['cucumber:production'].invoke
+```
 
 
 #### Troubleshooting
