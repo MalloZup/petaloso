@@ -1,12 +1,3 @@
-# Copyright (c) 2010-2017 SUSE-LINUX
-# Licensed under the terms of the MIT license.
-
-#
-# features/support/env.rb
-#
-
-# :firefox requires MozillaFirefox 3.7 or later !!
-$: << File.join(File.dirname(__FILE__), "..", "..", "lib")
 require 'rubygems'
 require 'tmpdir'
 require 'base64'
@@ -15,7 +6,6 @@ require 'capybara/cucumber'
 require 'simplecov'
 require 'capybara/poltergeist'
 SimpleCov.start
-host = ENV['TESTHOST']
 
 require 'minitest/unit'
 World(MiniTest::Assertions)
@@ -29,22 +19,9 @@ def restart_phantomjs
 end
 
 # basic support for rebranding of strings in the UI
-BRANDING = ENV['BRANDING'] || 'suse'
 DEFAULT_TIMEOUT = 200
 
-# Returns current url
-def current_url
-  driver.current_url
-end
-
-host = "https://#{host}"
-
-$myhostname = host
-
-ENV['LANG'] = "en_US.UTF-8"
-ENV['IGNORECERT'] = "1"
 $stdout.sync = true
-
 Capybara.default_wait_time = 10
 
 # Setup browser: phantomjs
@@ -61,7 +38,6 @@ Capybara.register_driver :poltergeist do |app|
 end
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
-Capybara.app_host = host
 
 # don't run own server on a random port
 Capybara.run_server = false

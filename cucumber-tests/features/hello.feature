@@ -10,11 +10,13 @@ Feature: Do some small tests
     Given I ping "www.suse.com"
     And I navigate to "https://www.suse.com/"
     Then I should see a "Products & Solutions" text
-      
+    Then I should see a "Strategic Partners" text
+    Then I should see a "SUSE, All Rights Reserved" text
+
   Scenario: Click a link and take a screenshot on suse.com
     Given I ping "www.suse.com"
     And I navigate to "https://www.suse.com/"
     Then I should see a "Products & Solutions" text
-    When I click "contact"
+    When I click "Jobs"
     Then I should not see a "Products & Solutions" text
-    And I take a screenshot
+    Then I should see a "FAIL_FOR_FUN" text

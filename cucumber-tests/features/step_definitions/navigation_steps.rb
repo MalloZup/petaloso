@@ -6,7 +6,7 @@
 And(/^I navigate to "([^"]*)"$/) do |page|
     # Capaybara for navigate in webpages, look at:
     # https://gist.github.com/zhengjia/428105
-     visit("https://#{page}")
+     visit(page)
 end
 
 #
@@ -30,26 +30,18 @@ Then(/^I should not see a "([^"]*)" text$/) do |text|
   end
 end
 
-# this is only for demo, normally you take screenshot
-# only if something fails.
-# https://github.com/teampoltergeist/poltergeist
-Then(/^I take a screenshot$/) do
-  save_screenshot('/tmp/wowscreen.png', :full => true)
-end
-
-# https://github.com/teampoltergeist/poltergeist
 Then(/^^I click "([^"]*)"/) do |link|
  begin
-    click(link)
+    click_link(link)
   rescue
     # in case of ajax
     sleep 10
-    click(link)
+    click_link(link)
   end
 end
 
 Then(/^^I ping "([^"]*)"/) do |server|
- wasGood = system("ping -c4 #{server}")
+ wasGood = system("ping -c1 #{server}")
  unless wasGood
    raise "ping failed!"
  end
