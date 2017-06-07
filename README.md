@@ -3,9 +3,14 @@ cucumber web-testing tutorial
 
 # Prequisites:
 
+* libvirtd up and running with a network default
+* terraform
+
 ## INSTALL terraform
 https://github.com/moio/sumaform/#installation
 
+For libvirt, you can take a look here:
+https://github.com/moio/sumaform/blob/master/modules/libvirt/README.md
 
 # HOWTO:
 
